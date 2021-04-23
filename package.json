@@ -8,7 +8,7 @@
   },
   "scripts": {
     "init": "ts-node src/database/dataset.ts",
-    "build": "tsc",
+    "build": "tsc && cp .env.dist dist/.env",
     "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/app.ts",
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
