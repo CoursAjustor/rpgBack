@@ -2,7 +2,7 @@ import { createHash } from 'crypto';
 import { isBefore } from 'date-fns';
 import { v4 } from 'uuid';
 import { UserModel } from '../models/UserModel';
-import { User } from './interfaces/user.interface';
+import { User } from '../users/interfaces/user.interface';
 
 export class LoginService {
   static async login({

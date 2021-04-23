@@ -1,12 +1,13 @@
 import { model, Schema } from 'mongoose';
+import { Class } from '../users/interfaces/user.interface';
 
 const CharacterSchema = new Schema({
-  life: { type: Number, default: 200 },
-  maxLife: { type: Number, default: 200 },
+  lp: { type: Number, default: 200 },
+  maxLp: { type: Number, default: 200 },
   mp: { type: Number, default: 100 },
   maxMp: { type: Number, default: 100 },
 
-  class: { type: String, enum: ['freelance'], default: 'freelance' },
+  class: { type: String, enum: Class, default: Class.FREELANCE },
   level: { type: Number, required: true, default: 1 },
 
   // Stats

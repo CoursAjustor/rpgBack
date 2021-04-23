@@ -6,3 +6,7 @@ export interface User {
   tokenValidity: Date;
   character: Record<string, any>;
 }
+
+export enum Class {
+  FREELANCE = 'freelance',
+}
