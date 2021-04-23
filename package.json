@@ -8,8 +8,9 @@
   },
   "scripts": {
     "init": "ts-node src/database/dataset.ts",
+    "compile": "tsc",
     "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/app.ts",
-    "start": "ts-node src/app.ts",
+    "start": "node dist/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,14 +18,14 @@
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.11",
-    "@types/mongoose": "^5.10.4",
+    "@types/mongoose": "^5.10.5",
     "@types/node": "^14.14.41",
     "@types/uuid": "^8.3.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
   },
   "dependencies": {
-    "typescript": "^4.2.3",
-    "ts-node": "^9.1.1",
     "body-parser": "^1.19.0",
     "class-sanitizer": "^1.0.1",
     "class-transformer": "^0.4.0",

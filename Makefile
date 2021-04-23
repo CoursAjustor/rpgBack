@@ -4,5 +4,8 @@ init:
 	cp .env.dist .env
 	npm i
 
+build:
+	npm run compile
+
 start:
 	npm start
