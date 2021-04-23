@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.ts",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "init": "ts-node src/database/dataset.ts",
     "start": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/app.ts",
