@@ -14,22 +14,35 @@ export class ItemController {
       .status(200);
   }
 
+  public static async delete(req: Request, res: Response) {
+    const {
+      params: { id },
+    } = req;
+    try {
+      await ItemService.delete(id);
+      return res.sendStatus(204);
+    } catch (e) {
+      const { code, ...error } = e;
+      return res.status(code).json({ ...error });
+    }
+  }
+
   public static async create(
     req: Request,
     res: Response,
   ): Promise<Record<string, any>> {
     const { body: item } = req;
-    const existingUser = await ItemService.exists({
+    const existingItem = await ItemService.exists({
       name: item.name,
     });
-    if (existingUser) {
+    if (existingItem) {
       return res.sendStatus(409);
     }
 
-    const user = await ItemService.create(item);
+    const createdItem = await ItemService.create(item);
 
     return res.status(201).json({
-      user,
+      item: createdItem,
     });
   }
 }

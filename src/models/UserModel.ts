@@ -22,7 +22,7 @@ UserSchema.pre('save', function (next) {
   }
 });
 
-export interface User extends Document {
+export interface UserDocument extends Document {
   username: string;
   email: string;
   token: string;

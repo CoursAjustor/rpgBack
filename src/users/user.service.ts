@@ -1,7 +1,7 @@
-import { getRandomInt } from '@/utils/helpers';
 import { createHash } from 'crypto';
 import { CharacterModel } from '../models/CharacterModel';
-import { User, UserModel } from '../models/UserModel';
+import { UserDocument, UserModel } from '../models/UserModel';
+import { getRandomInt } from '../utils/helpers';
 
 export class UserService {
   static async getAll() {
@@ -15,12 +15,12 @@ export class UserService {
   static async getOne(
     filter: Record<string, any>,
     populate: boolean = true,
-  ): Promise<User | null> {
+  ): Promise<UserDocument | null> {
     const populateFields = populate ? 'character' : '';
     return (await UserModel.findOne(
       { ...filter },
       'username email character token',
-    ).populate(populateFields)) as User;
+    ).populate(populateFields)) as UserDocument;
   }
 
   static async exists(filter: Record<string, any>) {
@@ -37,7 +37,7 @@ export class UserService {
       };
     }
     await CharacterModel.deleteOne({ _id: user.character });
-    user.delete();
+    await user.delete();
   }
 
   static async create({

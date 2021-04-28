@@ -14,8 +14,10 @@ class ItemRoutes extends CustomRouter {
       ItemController.create,
     );
 
+    this.router.delete('/:id', ItemController.delete);
+
     return this.router;
   }
 }
 
-export const itemRoutes = new ItemRoutes();
+export const itemsRoutes = new ItemRoutes();
