@@ -1,3 +1,4 @@
+import { getRandomInt } from '@/utils/helpers';
 import { createHash } from 'crypto';
 import { CharacterModel } from '../models/CharacterModel';
 import { User, UserModel } from '../models/UserModel';
@@ -49,7 +50,12 @@ export class UserService {
     password: string;
   }) {
     const encrypt = createHash('sha512');
-    const character = await CharacterModel.create({});
+    const character = await CharacterModel.create({
+      str: getRandomInt(5, 10),
+      agi: getRandomInt(5, 10),
+      end: getRandomInt(5, 10),
+      int: getRandomInt(5, 10),
+    });
     return await UserModel.create({
       username,
       email,
