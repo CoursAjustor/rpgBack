@@ -9,6 +9,12 @@ const CharacterSchema = new Schema({
 
   class: { type: String, enum: Class, default: Class.FREELANCE },
   level: { type: Number, required: true, default: 1 },
+  bag: [
+    {
+      item: { type: Schema.Types.ObjectId, ref: 'Item', required: true },
+      count: { type: Number },
+    },
+  ],
 
   // Stats
   str: { type: Number, default: 5 },
